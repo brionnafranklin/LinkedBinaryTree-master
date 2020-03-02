@@ -4,6 +4,7 @@
 
 BinaryTree::BinaryTree()
 {
+	m_pRoot = nullptr;
 }
 
 
@@ -11,9 +12,44 @@ BinaryTree::~BinaryTree()
 {
 }
 
+bool BinaryTree::isEmpty() const
+{
+	if (m_pRoot == nullptr)
+	{
+		return true;
+	}
+	else
+	{ 
+		return false;
+	}
+}
+
+void BinaryTree::insert(int a_nValue)
+{
+	if (isEmpty())
+	{
+		//m_pRoot = a_nValue;??
+		
+	}
+}
+
+void BinaryTree::remove(int a_nValue)
+{
+}
+
+TreeNode * BinaryTree::find(int a_nValue)
+{
+	return nullptr;
+}
+
 void BinaryTree::draw(TreeNode * selected)
 {
 	draw(m_pRoot, 640, 680, 640, selected);
+}
+
+bool BinaryTree::findNode(int a_nSearchValue, TreeNode ** ppOutNode, TreeNode ** ppOutParent)
+{
+	return false;
 }
 
 void BinaryTree::draw(TreeNode * pNode, int x, int y, int horizontalSpacing, TreeNode * selected)
