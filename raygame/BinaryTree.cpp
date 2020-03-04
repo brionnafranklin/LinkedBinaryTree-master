@@ -26,10 +26,56 @@ bool BinaryTree::isEmpty() const
 
 void BinaryTree::insert(int a_nValue)
 {
-	if (isEmpty())
+	TreeNode* insertNode = new TreeNode(a_nValue);
+
+	//If the tree is empty
+	if (isEmpty)
 	{
-		//m_pRoot = a_nValue;??
-		
+		//The value is inserted at the root
+		m_pRoot->setData(a_nValue);
+	}
+	else
+	{
+		//Set the current node to the root
+		TreeNode* currentNode = m_pRoot;
+		TreeNode* parentNode = currentNode;
+
+		//While the current node is !null
+		while (currentNode != nullptr)
+		{
+			//If the value to be inserted is less than the value in the current node
+			if (a_nValue < currentNode->getData())
+			{
+				//Set the current node to the left
+				parentNode = currentNode;
+				currentNode = currentNode->getLeft();
+			}
+			//If the value to be inserted is greater than the value in the current node
+			else if (a_nValue > currentNode->getData())
+			{
+				//Set the current node to the right
+				parentNode = currentNode;
+				currentNode = currentNode->getRight();
+			}
+			//If the value to be inserted is equel the value in the current node
+			else if (a_nValue == currentNode->getData())
+			{
+				//Set the current node to null
+				currentNode = nullptr;
+			}
+		}
+
+		//If the value to be inserted is less than parent
+		if (a_nValue < parentNode->getData())
+		{
+			//Insert value as left child node
+			parentNode->setLeft(insertNode);
+		}
+		else if (a_nValue > parentNode->getData())
+		{
+			//Insert value as right child
+			parentNode->setRight(insertNode);
+		}
 	}
 }
 
@@ -49,6 +95,34 @@ void BinaryTree::draw(TreeNode * selected)
 
 bool BinaryTree::findNode(int a_nSearchValue, TreeNode ** ppOutNode, TreeNode ** ppOutParent)
 {
+	//Set the current node to the root
+	*ppOutNode = m_pRoot;
+	*ppOutParent = m_pRoot;
+
+	//While the current node is not null
+	while (*ppOutNode != nullptr)
+	{
+		//If the value to be inserted is less than the value in the current node
+		if (a_nSearchValue < (*ppOutNode)->getData())
+		{
+			//Set the current node to the left
+			*ppOutParent = *ppOutNode;
+			*ppOutNode = (*ppOutParent)->getLeft();
+		}
+		//If the value to be inserted is greater than the value in the current node
+		else if (a_nSearchValue > (*ppOutParent)->getData())
+		{
+			//Set the current node to the right
+			*ppOutParent = *ppOutNode;
+			*ppOutNode = (*ppOutParent)->getRight();
+		}
+		//If the value to be inserted is equel the value in the current node
+		else if (a_nSearchValue == (*ppOutNode)->getData())
+		{
+			//Set the current node to null
+			*ppOutNode = nullptr;
+		}
+	}
 	return false;
 }
 
