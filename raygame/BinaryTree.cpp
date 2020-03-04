@@ -82,14 +82,20 @@ void BinaryTree::insert(int a_nValue)
 void BinaryTree::remove(int a_nValue)
 {
 	//Find the value in the tree, obtaining a pointer to the node and its parent
-	TreeNode ** temNode;
-	TreNode ** temParent;
-	findNode(a_nValue, , )
+	//TreeNode ** temNode;
+	//TreeNode ** temParent;
+	//findNode(a_nValue, temNode, temParent);
+
+	//If the current node has a right branch, then
+	//if (temNode->getRight() != nullptr;)
 }
 
 TreeNode * BinaryTree::find(int a_nValue)
 {
-	return nullptr;
+	TreeNode * temNode;
+	TreeNode * temParent;
+	findNode(a_nValue, &temNode, &temParent);
+	return temNode;
 }
 
 void BinaryTree::draw(TreeNode * selected)
@@ -100,30 +106,32 @@ void BinaryTree::draw(TreeNode * selected)
 bool BinaryTree::findNode(int a_nSearchValue, TreeNode ** ppOutNode, TreeNode ** ppOutParent)
 {
 	//Set the current node to the root
-	*ppOutNode = m_pRoot;
-	*ppOutParent = m_pRoot;
+	TreeNode* currentNode = m_pRoot;
+	TreeNode* parentNode = currentNode;
 
 	//While the current node is not null
-	while (*ppOutNode != nullptr)
+	while (currentNode != nullptr)
 	{
 		//If the value to be inserted is less than the value in the current node
-		if (a_nSearchValue < (*ppOutNode)->getData())
+		if (a_nSearchValue < currentNode->getData())
 		{
 			//Set the current node to the left
-			*ppOutParent = *ppOutNode;
-			*ppOutNode = (*ppOutParent)->getLeft();
+			parentNode = currentNode;
+			currentNode = currentNode->getLeft();
 		}
 		//If the value to be inserted is greater than the value in the current node
-		else if (a_nSearchValue > (*ppOutParent)->getData())
+		else if (a_nSearchValue > currentNode->getData())
 		{
 			//Set the current node to the right
-			*ppOutParent = *ppOutNode;
-			*ppOutNode = (*ppOutParent)->getRight();
+			parentNode = currentNode;
+			currentNode = currentNode->getRight();
 		}
 		//If the value to be inserted is equel the value in the current node
-		else if (a_nSearchValue == (*ppOutNode)->getData())
+		else if (a_nSearchValue == (currentNode)->getData())
 		{
 			//Return the current node and its parent
+			*ppOutNode = currentNode;
+			*ppOutParent = parentNode;
 			return true;
 		}
 	}

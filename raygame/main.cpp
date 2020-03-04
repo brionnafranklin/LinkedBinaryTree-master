@@ -25,6 +25,8 @@ int main()
 	SetTargetFPS(60);
 
 	BinaryTree tree;
+	TreeNode * selected;
+
 	tree.insert(4);
 	tree.insert(8);
 	tree.insert(2);
@@ -34,6 +36,8 @@ int main()
 	tree.insert(420);
 	tree.insert(34);
 	tree.insert(42);
+
+	selected = tree.find(69);
 	//--------------------------------------------------------------------------------------
 
 	// Main game loop
@@ -51,7 +55,7 @@ int main()
 		ClearBackground(RAYWHITE);
 
 		//DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
-		tree.draw();
+		tree.draw(selected);
 
 		EndDrawing();
 		//----------------------------------------------------------------------------------
