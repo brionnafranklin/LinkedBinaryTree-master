@@ -11,19 +11,29 @@
 
 #include "raylib.h"
 #include "TreeNode.h"
+#include "BinaryTree.h"
 
 int main()
 {
 	// Initialization
 	//--------------------------------------------------------------------------------------
-	int screenWidth = 800;
-	int screenHeight = 450;
+	int screenWidth = 1600;
+	int screenHeight = 900;
 
 	InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
 	SetTargetFPS(60);
 
-	TreeNode node(7);
+	BinaryTree tree;
+	tree.insert(4);
+	tree.insert(8);
+	tree.insert(2);
+	tree.insert(1);
+	tree.insert(14);
+	tree.insert(69);
+	tree.insert(420);
+	tree.insert(34);
+	tree.insert(42);
 	//--------------------------------------------------------------------------------------
 
 	// Main game loop
@@ -41,7 +51,7 @@ int main()
 		ClearBackground(RAYWHITE);
 
 		//DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
-		node.draw(190, 200, true);
+		tree.draw();
 
 		EndDrawing();
 		//----------------------------------------------------------------------------------
