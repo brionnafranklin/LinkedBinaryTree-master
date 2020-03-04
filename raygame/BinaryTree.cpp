@@ -82,12 +82,19 @@ void BinaryTree::insert(int a_nValue)
 void BinaryTree::remove(int a_nValue)
 {
 	//Find the value in the tree, obtaining a pointer to the node and its parent
-	//TreeNode ** temNode;
-	//TreeNode ** temParent;
-	//findNode(a_nValue, temNode, temParent);
+	TreeNode * temNode;
+	TreeNode * temParent;
+	findNode(a_nValue, &temNode, &temParent);
 
 	//If the current node has a right branch, then
-	//if (temNode->getRight() != nullptr;)
+	if (temNode->getRight() != nullptr)
+	{
+		//Find the minimum value in the right branch by iterating
+		while (temNode != nullptr)
+		{
+			
+		}
+	}
 }
 
 TreeNode * BinaryTree::find(int a_nValue)
