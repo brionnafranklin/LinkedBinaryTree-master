@@ -86,14 +86,51 @@ void BinaryTree::remove(int a_nValue)
 	TreeNode * temParent;
 	findNode(a_nValue, &temNode, &temParent);
 
-	//If the current node has a right branch, then
-	if (temNode->getRight() != nullptr)
+	//Return if node is not found
+	if (temNode == nullptr)
 	{
-		//Find the minimum value in the right branch by iterating
-		while (temNode != nullptr)
+		return;
+	}
+
+	//If the current node has a right branch, then find the minimum value in the right branch by iterating
+	if (temNode->hasRight)
+	{
+		TreeNode * minNode;
+		minNode = temNode->getRight();
+		temParent = temNode;
+
+		//down the left branch of the current node's right child until there are no more left branch nodes and keep track of the minimum node's parent
+		while (minNode->hasLeft())
 		{
-			
+			temNode = minNode;
+			minNode = minNode->getLeft();
 		}
+
+		//Copy the value from this minimum node to the current node
+		temNode->setData(minNode->getData());
+
+		//If we are deleting the parent's left node
+		if (minNode == temParent->getLeft())
+		{
+			//Set the left child of the parent to the right child of the minimum node
+			temParent->setLeft(minNode->getRight());
+			remove(temNode->getData());
+		}
+
+		//If we are deleting the parent's right node
+		if (minNode == temParent->getRight())
+		{
+			//Set the right child of the parent to the right child of the minimum node
+			temParent->setRight(minNode->getRight());
+			remove(temParent->getData());
+		}
+	}
+
+	//If the current no has no right branch
+	else if (!(temNode->hasRight))
+	{
+		//If we are deleting the parent's left child
+		if ()
 	}
 }
 
