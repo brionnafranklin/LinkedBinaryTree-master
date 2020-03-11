@@ -1,17 +1,18 @@
 #include "BinaryTree.h"
 #include "raylib.h"
 
-
+//default binary tree constructor
 BinaryTree::BinaryTree()
 {
 	m_pRoot = nullptr;
 }
 
-
+//default binary tree deconstructor
 BinaryTree::~BinaryTree()
 {
 }
 
+//checks to see if the root is empty
 bool BinaryTree::isEmpty() const
 {
 	if (m_pRoot == nullptr)
@@ -24,6 +25,7 @@ bool BinaryTree::isEmpty() const
 	}
 }
 
+//puts a given node in the tree
 void BinaryTree::insert(int a_nValue)
 {
 	TreeNode* insertNode = new TreeNode(a_nValue);
@@ -79,6 +81,7 @@ void BinaryTree::insert(int a_nValue)
 	}
 }
 
+//removes a node from the tree
 void BinaryTree::remove(int a_nValue)
 {
 	//Find the value in the tree, obtaining a pointer to the node and its parent
@@ -154,6 +157,7 @@ void BinaryTree::remove(int a_nValue)
 	}
 }
 
+//findes a node in the tree by is number value starting at the root
 TreeNode * BinaryTree::find(int a_nValue)
 {
 	TreeNode * temNode;
@@ -162,11 +166,13 @@ TreeNode * BinaryTree::find(int a_nValue)
 	return temNode;
 }
 
+//draws the tree starting with the root
 void BinaryTree::draw(TreeNode * selected)
 {
 	draw(m_pRoot, 640, 170, 640, selected);
 }
 
+//findes a node in the tree by is number value
 bool BinaryTree::findNode(int a_nSearchValue, TreeNode ** ppOutNode, TreeNode ** ppOutParent)
 {
 	//Set the current node to the root
@@ -202,6 +208,7 @@ bool BinaryTree::findNode(int a_nSearchValue, TreeNode ** ppOutNode, TreeNode **
 	return false;
 }
 
+//draws the binary tree
 void BinaryTree::draw(TreeNode * pNode, int x, int y, int horizontalSpacing, TreeNode * selected)
 {
 	horizontalSpacing /= 2;

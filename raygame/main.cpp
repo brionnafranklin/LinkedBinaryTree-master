@@ -13,20 +13,29 @@
 #include "TreeNode.h"
 #include "BinaryTree.h"
 
+//the only function in main.cpp; runs on start up
 int main()
 {
 	// Initialization
 	//--------------------------------------------------------------------------------------
+
+	//set screen width
 	int screenWidth = 1600;
+	//set screen height
 	int screenHeight = 900;
 
+	//creates basic window
 	InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
+	//sets the fps
 	SetTargetFPS(60);
 
+	//creates binary tree
 	BinaryTree tree;
+	//creates a pointer to a node used to select a node
 	TreeNode * selected;
 
+	//populate tree
 	tree.insert(4);
 	tree.insert(8);
 	tree.insert(2);
@@ -37,10 +46,12 @@ int main()
 	tree.insert(34);
 	tree.insert(42);
 
+	//selects a node
 	selected = tree.find(69);
 
-	
+	//removes a node from the tree
 	tree.remove(14);
+
 	//--------------------------------------------------------------------------------------
 
 	// Main game loop
