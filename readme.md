@@ -7,6 +7,8 @@
 ## I. Design
 
 1. Object Information
+   
+   -A tree where each node has a maximum of 2 children.  The left sub-tree contains key values less than the root.  The right sub-tree contains key values greater than the root.  Values can be anything as long as they can be compared.
 
     **File**: BinaryTree.h
 
