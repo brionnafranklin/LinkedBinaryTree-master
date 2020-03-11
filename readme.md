@@ -1,37 +1,160 @@
-# raygame - sample project
+| Brionna Franklin|
+| :---              |
+| s198017          |
+| Assessment 3 - TikTakToe|
+| TikTakToe Documentation |
 
-This is a sample C++ project setup with [raylib][raylib] for Visual Studio 2017.
-Raylib is a simple game programming framework that is designed to be friendly to
-beginners. It is created by [Ramon Santamaria (@raysan5)][raysan].
+## I. Design
 
-It is primarily intended for use by students in the Game Programming course at
-the Seattle Campus of the Academy of Interactive Entertainment.
+1. Object Information
 
-[raylib]:https://github.com/raysan5/raylib
-[raysan]:https://github.com/raysan5
+    **File**: BinaryTree.h
 
-## Building
+        Description: An organized tree the sorts and stores nodes
 
-This project supports by **Visual Studio 2017** or newer.
+            Operations:
 
-Clone the repository and open the solution in Visual Studio. Both the solution
-and project should already be configured and ready to start working with. To
-test this, build and run the provided sample project.
+                -Name: BinaryTree
+                Description: default binary tree constructor
+                Type: constructor
+                Visibility: public
+                
+                -Name: BinaryTree
+                Description: default binary tree deconstructor
+                Type: deconstructor
+                Visibility: public
+                
+                -Name: isEmpty
+                Description: checks to see if the root is empty
+                Type: bool
+                Visibility: public
+                
+                -Name: insert
+                Description: puts a given node in the tree
+                Type: void
+                Visibility: public
+                
+                -Name: remove
+                Description: removes a node from the tree
+                Type: void
+                Visibility: public
+                
+                -Name: find
+                Description: findes a node in the tree by is number value starting at the root
+                Type: TreeNode pointer
+                Visibility: public
+                
+                -Name: draw
+                Description: draws the tree starting with the root
+                Type: void
+                Visibility: public
+                
+                -Name: findNode
+                Description: findes a node in the tree by is number value
+                Type: bool
+                Visibility: private
+                
+                -Name: draw
+                Description: draws the binary tree
+                Type: void
+                Visibility: private
+                
+            Attributes:
+                
+                -Name: m_pRoot
+                Description: the root node of the tree
+                Type: reeNode pointer
+                Visibility: private
+                
+   **File**: TreeNode.h
 
-![A screenshot of the included sample project](.github/raygame.png)
+        Description: A node to be placed in a binary tree
 
-The sample project that is provided is the [basic window example][basicexample]
-from raylib. Further examples can be found in its [repository][rayexample] or
-on the [website][rayexamplesite].
+            Operations:
+                
+                -Name: TreeNode
+                Description: constructer for TreeNode
+                Type: constructer
+                Visibility: public
+                
+                -Name: TreeNode
+                Description: deconstructer for TreeNode
+                Type: deconstructer
+                Visibility: public
+                
+                -Name: hasLeft
+                Description: returns true if m_left is not null
+                Type: bool
+                Visibility: public
+                
+                -Name: hasRight
+                Description: returns true if m_right is not null
+                Type: bool
+                Visibility: public
+                
+                -Name: getData
+                Description: returns m_value
+                Type: int
+                Visibility: public
+                
+                -Name: getLeft
+                Description: returns m_left
+                Type: TreeNode pointer
+                Visibility: public
+                
+                -Name: getRight
+                Description: returns m_right
+                Type: TreeNode pointer
+                Visibility: public
+                
+                -Name: setData
+                Description: sets the number stored in the node
+                Type: void
+                Visibility: public
+                
+                -Name: setLeft
+                Description: sets the node's left child
+                Type: void
+                Visibility: public
+                
+                -Name: setRight
+                Description: sets the node's right child
+                Type: void
+                Visibility: public
+                
+                -Name: draw
+                Description: draws a circle for the node and puts it's value inside of it
+                Type: void
+                Visibility: public
+                
+            Attributes:
+                
+                -Name: m_value
+                Description: data this node stores
+                Type: int
+                Visibility: private
+                
+                -Name: m_left
+                Description: this node's left child
+                Type: TreeNode pointer
+                Visibility: private
+                
+                -Name: m_right
+                Description: this node's right child
+                Type: TreeNode pointer
+                Visibility: private
+                
+      **File**: main.cpp
 
-You can review the [cheatsheet][raycheat] for the full range of functions made
-available through raylib.
+        Description: runs on start up
 
-[basicexample]:https://github.com/raysan5/raylib/blob/master/examples/core/core_basic_window.cpp
-[rayexample]:https://github.com/raysan5/raylib/tree/master/examples
-[rayexamplesite]:https://www.raylib.com/examples.html
-[raycheat]:https://www.raylib.com/cheatsheet/cheatsheet.html
-
+            Operations:
+                
+                -Name: main
+                Description: the only function in main.cpp; runs on start up
+                Type: int
+                Visibility: private
+                
 ## License
 
 MIT License - Copyright (c) 2018 Academy of Interactive Entertainment
